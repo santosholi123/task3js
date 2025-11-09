@@ -1,12 +1,4 @@
-// ============================================================
-// 🏦 BANKING SYSTEM OOP CHALLENGE — Full Assignment (Steps 1–4)
-// Language: Dart
-// ============================================================
-
-
-// ============================================================
-// ===== STEP 1: Abstract Base Class — BankAccount (Encapsulation + Abstraction)
-// ============================================================
+//Abstract Base Class — BankAccount (Encapsulation + Abstraction)
 
 abstract class BankAccount {
   // Private fields
@@ -53,9 +45,7 @@ abstract class BankAccount {
     print('Holder Name    : $_accountHolderName');
     print('Balance        : \$${_balance.toStringAsFixed(2)}');
     print('--------------------');
-  }
-
-  // ===== STEP 4 FEATURE: Transaction History =====
+//Transaction History 
   void _addTransaction(String details) => _transactions.add(details);
 
   void showTransactionHistory() {
@@ -67,20 +57,16 @@ abstract class BankAccount {
     }
   }
 }
-
-
-// ============================================================
-// ===== STEP 2: Interface — InterestBearing
-// ============================================================
+Interface — InterestBearing
 
 abstract class InterestBearing {
   double calculateInterest();
 }
 
 
-// ============================================================
-// ===== STEP 2: SavingsAccount (Inheritance + Polymorphism)
-// ============================================================
+
+// SavingsAccount (Inheritance + Polymorphism)
+
 
 class SavingsAccount extends BankAccount implements InterestBearing {
   static const double _minBalance = 500;
@@ -127,10 +113,7 @@ class SavingsAccount extends BankAccount implements InterestBearing {
   }
 }
 
-
-// ============================================================
-// ===== STEP 2: CheckingAccount
-// ============================================================
+//CheckingAccount
 
 class CheckingAccount extends BankAccount {
   static const double _overdraftFee = 35;
@@ -155,11 +138,7 @@ class CheckingAccount extends BankAccount {
     }
   }
 }
-
-
-// ============================================================
-// ===== STEP 2: PremiumAccount
-// ============================================================
+// PremiumAccount
 
 class PremiumAccount extends BankAccount implements InterestBearing {
   static const double _minBalance = 10000;
@@ -197,12 +176,7 @@ class PremiumAccount extends BankAccount implements InterestBearing {
     print('Interest of \$${interest.toStringAsFixed(2)} added to PremiumAccount');
   }
 }    
-
-
-// ============================================================
-// ===== STEP 4 (Part 1): StudentAccount (New Account Type)
-// ============================================================
-
+// StudentAccount (New Account Type)
 class StudentAccount extends BankAccount {
   static const double _maxBalance = 5000;
 
@@ -235,9 +209,9 @@ class StudentAccount extends BankAccount {
 }
 
 
-// ============================================================
-// ===== STEP 3: Bank Class (Manages All Accounts)
-// ============================================================
+
+// Bank Class (Manages All Accounts)
+
 
 class Bank {
   final List<BankAccount> _accounts = [];
@@ -287,7 +261,7 @@ class Bank {
     print('=====================================');
   }
 
- // ===== STEP 4 (Part 2): Apply Interest to All InterestBearing Accounts =====
+ //  Apply Interest to All InterestBearing Accounts =====
 void applyMonthlyInterestToAll() {
   print('\n💰 Applying Monthly Interest to All Eligible Accounts...');
   for (var acc in _accounts) {
@@ -304,9 +278,8 @@ void applyMonthlyInterestToAll() {
 }
 
 
-// ============================================================
-// ===== STEP 4 (Part 3): Demo Main Function
-// ============================================================
+
+// Demo Main Function
 
 void main() {
   var bank = Bank();
@@ -341,3 +314,4 @@ void main() {
   pre.showTransactionHistory();
   stu.showTransactionHistory();
 }
+
